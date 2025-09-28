@@ -1,1 +1,50 @@
+.navbar {
+    display: flex !important;
+    justify-content: space-between;
+}
 
+.profile-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* rotating border effect */
+.profile-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(#4dabf7, transparent, #4dabf7);
+  animation: rotateBorder 4s linear infinite;
+  z-index: 0;
+}
+
+.profile-card::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background: white; /* card background inside */
+  border-radius: inherit;
+  z-index: 1;
+}
+
+.profile-card * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
